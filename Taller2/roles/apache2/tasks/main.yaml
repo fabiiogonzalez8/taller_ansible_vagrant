@@ -25,4 +25,14 @@
     group: root
     mode: '0644'
   notify:
-    - 
+    - restart apache2
+
+- name: "Copiar fichero.html a la máquina remota"
+  copy: 
+    src: files/fichero.html
+    dest: /var/www/html/index.html
+    owner: www-data
+    group: www-data
+    mode: 0644
+  notify:
+    - restart apache2
